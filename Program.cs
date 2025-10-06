@@ -1,6 +1,8 @@
+using minimal_api.Infrastructure.Data;
 using MinimalApi.DTOs;
 
 var builder = WebApplication.CreateBuilder(args);
+builder.Services.AddSqlite<DataContext>("Data Source=mininal_api.db");
 var app = builder.Build();
 
 app.MapGet("/", () => "Hello World!");
