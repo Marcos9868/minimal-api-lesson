@@ -9,6 +9,7 @@ namespace minimal_api.Infrastructure.Data
         { }
 
         public DbSet<Admin> Admins { get; set; }
+        public DbSet<Vehicle> Vehicles { get; set; }
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
             modelBuilder.ApplyConfigurationsFromAssembly(typeof(DataContext).Assembly);
