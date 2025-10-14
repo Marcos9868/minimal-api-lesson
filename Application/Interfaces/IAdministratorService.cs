@@ -5,6 +5,9 @@ namespace minimal_api.Application.Interfaces
 {
     public interface IAdministratorService
     {
-        List<Admin> Login(LoginDTO login);        
+        Admin? Login(LoginDTO login);
+        Admin AddAdmin(Admin admin);
+        Admin? SearchById(int id);
+        List<Admin> All(int? page);
     }
 }
