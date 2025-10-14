@@ -1,5 +1,6 @@
+using minimal_api.Domain.DTOs;
+using minimal_api.Domain.ViewModels;
 using minimal_api.Infrastructure.Data;
-using MinimalApi.DTOs;
 
 var builder = WebApplication.CreateBuilder(args);
 builder.Services.AddSqlite<DataContext>("Data Source=mininal_api.db");
@@ -12,8 +13,13 @@ if (app.Environment.IsDevelopment())
   app.UseSwagger();
   app.UseSwaggerUI();
 }
-app.MapGet("/", () => "Hello World!");
-app.MapPost("/login", (LoginDTO loginDto) => 
+
+#region Home
+app.MapGet("/", () => Results.Json(new Home()));
+#endregion
+
+#region Vehicle
+app.MapPost("/Vehicles/login", (VehicleDTO vehicle, LoginDTO loginDto) => 
 {
   if (loginDto.Email == "admin@teste.com" && loginDto.Password == "123456")
   {
@@ -24,5 +30,6 @@ app.MapPost("/login", (LoginDTO loginDto) =>
     return Results.Unauthorized();
   }
 });
+#endregion
 
 app.Run();
