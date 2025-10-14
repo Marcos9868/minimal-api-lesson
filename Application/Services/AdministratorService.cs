@@ -1,7 +1,7 @@
 using minimal_api.Application.Interfaces;
+using minimal_api.Domain.DTOs;
 using minimal_api.Domain.Entities;
 using minimal_api.Infrastructure.Data;
-using MinimalApi.DTOs;
 
 namespace minimal_api.Application.Services
 {
